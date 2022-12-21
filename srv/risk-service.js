@@ -78,7 +78,7 @@ module.exports = cds.service.impl(async function () {
         try {
             res = await next();
             res = Array.isArray(res) ? res : [res];
-
+            console.log(process.env.apikey);
             await Promise.all(
                 res.map(async (risk) => {
                     const bp = await BPsrv.transaction(req).send({
